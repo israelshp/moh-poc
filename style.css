@@ -1,0 +1,21 @@
+.arcgis-app {
+  width: 100%;
+  height: 100%;
+  border: none;
+  min-height: 80vh;
+  max-width: 80vw;
+  margin: 30px auto;
+  display: block;
+}
+
+.arcgis-app-container {
+}
+
+body {
+  background-color: #eef1f6;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
