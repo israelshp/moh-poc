@@ -3,56 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>POC</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Web GIS POC</title>
+    <style>
+      body {
+        direction: rtl;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      ul,
+      li {
+        list-style-type: none;
+        padding: 0;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: center;
+        justify-content: center;
+      }
+      li {
+        background-color: #ededed;
+        width: 50vw;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px 20px;
+      }
+      li:hover {
+        background-color: #c9c9c9;
+      }
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    </style>
   </head>
   <body>
-    <div class="arcgis-app-container">
-      <h1>מוקדי סיוע נפשי</h1>
-      <iframe
-        class="arcgis-app"
-        src="https://experience.arcgis.com/experience/b69e0965ce2547389d9c95eb98369bed?locale=he"
-      ></iframe>
-    </div>
-
-    <div class="arcgis-app-container">
-      <h1>מרפאות משפחה וילדים</h1>
-      <iframe
-        class="arcgis-app"
-        src="https://experience.arcgis.com/experience/4468d42f96e042c0a9a2b7eea7090a7e?locale=he"
-      ></iframe>
-    </div>
-
-    <div class="arcgis-app-container">
-      <h1>בתי מרקחת</h1>
-      <iframe
-        class="arcgis-app"
-        src="https://experience.arcgis.com/experience/416807a28a67434baf112dfc448e9821?locale=he"
-      ></iframe>
-    </div>
-
-    <div class="arcgis-app-container">
-      <h1>טיפות חלב</h1>
-      <iframe
-        class="arcgis-app"
-        src="https://experience.arcgis.com/experience/6aa28e0affa640c18e9fae70293e02cb?locale=he"
-      ></iframe>
-    </div>
-
-    <div class="arcgis-app-container">
-      <h1>שירותים רפואיים</h1>
-      <iframe
-        src="https://experience.arcgis.com/experience/f6a028e3d41a4b58b650f657e54249e0?locale=he#hmo_desc=כללית,מכבי,מאוחדת,לאומית&expertise_desc=משפחה&pairing_desc=שירותי סל"
-        class="arcgis-app"
-      ></iframe>
-
-      <div class="arcgis-app-container">
-        <h1>חופים</h1>
-        <iframe
-          src="https://experience.arcgis.com/experience/c89c19e6aef3484283316ca4570bba07?locale=he"
-          class="arcgis-app"
-        ></iframe>
-      </div>
-    </div>
+    <ul>
+      <a href="apps"><li>Experience / Dashboard</li></a>
+      <a href="sdk"><li>ArcGIS JS SDK</li></a>
+    </ul>
   </body>
 </html>

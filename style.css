@@ -5,7 +5,7 @@
   min-height: 80vh;
   max-width: 80vw;
   margin: 30px auto;
-  display: block;
+  display: flex;
 }
 
 .arcgis-app-container {
