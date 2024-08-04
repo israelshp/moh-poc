@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.28/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.28/"></script>
+    <script src="data.js"></script>
+    <title>ArcGIS JS SDK Maps</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div id="maps"></div>
+    <script>
+      data.forEach((item) => {
+        console.log(item.id);
+        const appContainer = document.createElement("div");
+        appContainer.classList.add("arcgis-app-container");
+        const title = document.createElement("h1");
+        title.innerText = item.name;
+        const mapDiv = document.createElement("div");
+        mapDiv.classList.add("arcgis-app");
+        const target = document.getElementById("maps");
+        appContainer.appendChild(title);
+        appContainer.appendChild(mapDiv);
+        target.appendChild(appContainer);
+
+        require([
+          "esri/config",
+          "esri/Map",
+          "esri/views/MapView",
+          "esri/layers/FeatureLayer",
+          "esri/renderers/Renderer",
+          "esri/renderers/support/jsonUtils",
+        ], (
+          esriConfig,
+          Map,
+          MapView,
+          FeatureLayer,
+          Renderer,
+          rendererJsonUtils
+        ) => {
+          //   esriConfig.apiKey = "" // enter API Key and uncomment if needed
+          const map = new Map({
+            // basemap: { style: { id: "arcgis/light-gray", language: "he" } }, // <-- this one requires an API Key
+            basemap: "gray-vector",
+          });
+          const view = new MapView({
+            map: map,
+            center: [35, 32],
+            zoom: 7,
+            container: mapDiv,
+            navigation: {
+              browserTouchPanEnabled: false,
+            },
+          });
+          const featureLayer = new FeatureLayer({
+            url: item.layer,
+            //renderer: createFieldBasedRenderer("hmo_desc"),
+          });
+          if (!!item.renderer) {
+            featureLayer.renderer = rendererJsonUtils.fromJSON(item.renderer);
+          }
+          map.add(featureLayer);
+        });
+      });
+    </script>
+  </body>
+</html>
